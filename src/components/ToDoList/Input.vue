@@ -1,29 +1,29 @@
 <script setup lang="ts">
 defineProps({
-    type: String,
-    placeholder: String,
-});
-const model = defineModel();
-
+  type: String,
+  placeholder: String
+})
+const model = defineModel()
 </script>
 <template>
-    <div class="input">
-        <input :type="type" :placeholder="placeholder" v-model="model">
-    </div>
+  <div class="input">
+    <input :type="type" :placeholder="placeholder" v-model="model" />
+  </div>
 </template>
 <style scoped>
 input {
-    border: 2px solid rgb(7, 63, 216);
-    border-radius: 9px;
-    width: 100%;
-    padding: 10px 12px;
+  border: 2px solid rgb(7, 63, 216);
+  border-radius: 9px;
+  width: 100%;
+  padding: 10px 12px;
 }
 
 input::placeholder {
-    color: rgb(89, 126, 228);
+  color: rgb(89, 126, 228);
 }
 
 input:focus {
-    outline: none;
+  box-shadow: 1px 1px 12px;
+  outline: none;
 }
 </style>

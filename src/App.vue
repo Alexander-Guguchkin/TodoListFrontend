@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
+import Header from '@/components/Header.vue'
 </script>
 
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/">ToDoList</RouterLink>
-    </nav>
-  </header>
-
-  <RouterView />
+  <Header />
+  <div class="cont">
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.cont {
+  padding: 24px;
+}
+</style>
