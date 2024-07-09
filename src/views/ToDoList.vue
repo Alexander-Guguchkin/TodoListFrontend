@@ -13,8 +13,7 @@ function createTask(): void {
     text: inputText
   })
 }
-function findElem(id: number) {}
-function deleteTask() {}
+
 </script>
 <template>
   <div class="wrapper">
