@@ -3,17 +3,16 @@ import Button from '@/components/ToDoList/Button.vue'
 import Input from '@/components/ToDoList/Input.vue'
 import { defineProps, ref } from 'vue'
 
-
 defineProps({
   text: String
 })
 let edit = ref(false)
 let inputText: string = ref('')
 function isEdit(): void {
-  edit.value = !edit.value;  
+  edit.value = !edit.value
 }
-function findElem(id: number, ) { }
-function deleteTask() { }
+function findElem(id: number) {}
+function deleteTask() {}
 </script>
 <template>
   <div class="task">

@@ -2,18 +2,12 @@
 import Input from '@/components/ToDoList/Input.vue'
 import Button from '@/components/ToDoList/Button.vue'
 import Blank from '@/components/ToDoList/Blank.vue'
+import { useTasksStore } from '@/stores/tasks'
 import { ref } from 'vue'
-const tasks: any = ref([])
-let inputText: string = ''
-function createTask(): void {
-  let id: number = tasks.value.length + 1
-
-  tasks.value.push({
-    id: id,
-    text: inputText
-  })
-}
-
+const tasksStore = useTasksStore()
+const tasks = tasksStore.tasks
+let inputText = ref('')
+const createTask = () => { tasksStore.createTask(inputText) } 
 </script>
 <template>
   <div class="wrapper">
