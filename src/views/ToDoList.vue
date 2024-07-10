@@ -6,7 +6,7 @@ import { useTasksStore } from '@/stores/tasks'
 import { ref } from 'vue'
 const tasksStore = useTasksStore()
 const tasks = tasksStore.tasks
-let inputText = ref('')
+let inputText:string|number;
 const createTask = () => { tasksStore.createTask(inputText) } 
 </script>
 <template>
