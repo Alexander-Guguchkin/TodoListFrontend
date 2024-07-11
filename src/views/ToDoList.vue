@@ -5,7 +5,6 @@ import Blank from '@/components/ToDoList/Blank.vue'
 import { useTasksStore } from '@/stores/tasks'
 import { ref } from 'vue'
 const tasksStore = useTasksStore()
-const tasks = tasksStore.tasks
 let inputText:string|number;
 const createTask = () => { tasksStore.createTask(inputText) } 
 </script>
@@ -16,7 +15,7 @@ const createTask = () => { tasksStore.createTask(inputText) }
       <Button textButton="Создать" @click="createTask" />
     </div>
     <div class="output">
-      <Blank :value="tasks" />
+      <Blank/>
     </div>
   </div>
 </template>
