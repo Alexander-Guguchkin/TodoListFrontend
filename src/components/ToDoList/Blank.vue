@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import Task from '@/components/ToDoList/Task.vue'
-import { useTasksStore } from '@/stores/tasks'
-const tasksStore = useTasksStore()
-const tasks = tasksStore.tasks
+
 defineProps({
   value: Array
 })
-function deleteTask(id:number){
-    tasks.value = tasks.value.filter((task) => task.id !== id); 
-}
+
 </script>
 <template>
   <div class="blank">
     <template v-for="el in value" :key="el.id"> 
-      <Task @delFunc="deleteTask" :text="el.text" />
+      <Task :id="el.id" :text="el.text" />
     </template>
   </div>
 </template>
