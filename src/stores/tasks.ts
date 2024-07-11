@@ -16,6 +16,9 @@ export const useTasksStore = defineStore('tasks', () => {
   function deleteTask(id:any):void{
     tasks.value = tasks.value.filter((task)=> task.id !== id); 
   }
+  function editTask(id:any):void{
+  
+  }
 
   return { tasks, createTask, deleteTask }
 })

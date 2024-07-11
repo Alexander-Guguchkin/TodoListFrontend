@@ -26,7 +26,7 @@ function isEdit(): void {
       <div class="text">{{ text }}</div>
     </template>
     <template v-else>
-      <Input  v-model="inputText" type="text" placeholder="Введите задачу" />
+      <Input  v-model="inputText" type="text" :placeholder="text" />
     </template>
 
     <div class="buttons">
