@@ -6,17 +6,22 @@ import { useTasksStore } from '@/stores/tasks'
 const tasksStore = useTasksStore()
 
 const props = defineProps({
-  id:Number,
+  id: Number,
   text: String
 })
 
 let edit = ref(false)
-let inputText: string = ref('')
+let inputText:string|number  = ref('')
 // проверить как будет работать данный код в компоненте  Blank
-let deleteTask = ()=>{tasksStore.deleteTask(props.id)} 
+let deleteTask = () => { tasksStore.deleteTask(props.id) }
 
-function isEdit(): void {
-  edit.value = !edit.value
+function onEdit(): void {
+  edit.value = true
+}
+
+function offEdit():void {
+  edit.value = false
+  tasksStore.editTask(props.id, inputText)
 }
 
 </script>
@@ -26,18 +31,18 @@ function isEdit(): void {
       <div class="text">{{ text }}</div>
     </template>
     <template v-else>
-      <Input  v-model="inputText" type="text" :placeholder="text" />
+      <Input v-model="inputText" type="text" :placeholder="text" />
     </template>
 
     <div class="buttons">
       <Button textButton="Удалить" @click="deleteTask" />
 
       <template v-if="edit === false">
-        <Button textButton="Редактировать" @click="isEdit" />
+        <Button textButton="Редактировать" @click="onEdit" />
       </template>
 
       <template v-else>
-        <Button textButton="Подтвердить" @click="isEdit" />
+        <Button textButton="Подтвердить" @click="offEdit" />
       </template>
     </div>
   </div>
