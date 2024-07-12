@@ -5,7 +5,7 @@ const tasksStore = useTasksStore()
 </script>
 <template>
   <div class="blank">
-    <template v-for="el in tasksStore.tasks" :key="el.id"> 
+    <template v-for="el in tasksStore.tasks" :key="el.id">
       <TaskComponent :id="el.id" :text="el.text" />
     </template>
   </div>

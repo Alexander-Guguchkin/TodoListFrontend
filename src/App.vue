@@ -4,14 +4,18 @@ import HeaderComponent from '@/components/HeaderComponent.vue'
 </script>
 
 <template>
-  <HeaderComponent />
-  <div class="cont">
-    <RouterView />
+  <div class="container">
+    <div class="container__header">
+      <HeaderComponent />
+    </div>
+    <div class="conteiner__main">
+      <RouterView />
+    </div>
   </div>
 </template>
 
 <style scoped>
-.cont {
+.conteiner__main {
   padding: 24px;
 }
 </style>

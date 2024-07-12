@@ -1,8 +1,7 @@
 <script setup lang="ts">
 defineProps({
   type: String,
-  placeholder: String,
-
+  placeholder: String
 })
 const model = defineModel()
 </script>

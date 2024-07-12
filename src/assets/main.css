@@ -1,8 +1,20 @@
 /* @import './base.css'; */
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src:
+    local('Roboto'),
+    url('/fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
+    url('/fonts/Roboto/Roboto-Regular.woff') format('woff');
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {

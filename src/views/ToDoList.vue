@@ -5,11 +5,10 @@ import BlankComponent from '@/components/ToDoList/BlankComponent.vue'
 import { useTasksStore } from '@/stores/tasks'
 
 const tasksStore = useTasksStore()
-let inputText: string | number;
+let inputText: string | number
 const createTask = () => {
   tasksStore.createTask(inputText)
 }
-
 </script>
 <template>
   <div class="wrapper">
@@ -25,8 +24,7 @@ const createTask = () => {
 <style scoped>
 .wrapper {
   margin: 0 auto;
-  width: 900px;
-  min-width: 440px;
+  min-width: 329px;
 }
 
 .form {
