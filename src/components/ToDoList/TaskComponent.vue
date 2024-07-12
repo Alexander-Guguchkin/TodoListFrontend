@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Button from '@/components/ToDoList/Button.vue'
-import Input from '@/components/ToDoList/Input.vue'
+import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
+import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import { defineProps, ref } from 'vue'
 import { useTasksStore } from '@/stores/tasks'
 const tasksStore = useTasksStore()
@@ -28,21 +28,21 @@ function offEdit():void {
 <template>
   <div class="task">
     <template v-if="edit === false">
-      <div class="text">{{ text }}</div>
+      <div class="text">{{ text }} - {{ id }}</div>
     </template>
     <template v-else>
-      <Input v-model="inputText" type="text" :placeholder="text" />
+      <InputComponent v-model="inputText" type="text" :placeholder="text" />
     </template>
 
     <div class="buttons">
-      <Button textButton="Удалить" @click="deleteTask" />
+      <ButtonComponent textButton="Удалить" @click="deleteTask" />
 
       <template v-if="edit === false">
-        <Button textButton="Редактировать" @click="onEdit" />
+        <ButtonComponent textButton="Редактировать" @click="onEdit" />
       </template>
 
       <template v-else>
-        <Button textButton="Подтвердить" @click="offEdit" />
+        <ButtonComponent textButton="Подтвердить" @click="offEdit" />
       </template>
     </div>
   </div>

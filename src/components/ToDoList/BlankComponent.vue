@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Task from '@/components/ToDoList/Task.vue'
+import TaskComponent from '@/components/ToDoList/TaskComponent.vue'
 import { useTasksStore } from '@/stores/tasks'
 const tasksStore = useTasksStore()
 </script>
 <template>
   <div class="blank">
     <template v-for="el in tasksStore.tasks" :key="el.id"> 
-      <Task :id="el.id" :text="el.text" />
+      <TaskComponent :id="el.id" :text="el.text" />
     </template>
   </div>
 </template>

@@ -1,24 +1,24 @@
 <script lang="ts" setup>
-import Input from '@/components/ToDoList/Input.vue'
-import Button from '@/components/ToDoList/Button.vue'
-import Blank from '@/components/ToDoList/Blank.vue'
+import InputComponent from '@/components/ToDoList/InputComponent.vue'
+import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
+import BlankComponent from '@/components/ToDoList/BlankComponent.vue'
 import { useTasksStore } from '@/stores/tasks'
-import { ref } from 'vue'
+
 const tasksStore = useTasksStore()
 let inputText: string | number;
 const createTask = () => {
   tasksStore.createTask(inputText)
-} 
+}
 
 </script>
 <template>
   <div class="wrapper">
     <div class="form">
-      <Input v-model="inputText" type="text" placeholder="Введите задачу" />
-      <Button textButton="Создать" @click="createTask" />
+      <InputComponent v-model="inputText" type="text" placeholder="Введите задачу" />
+      <ButtonComponent textButton="Создать" @click="createTask" />
     </div>
     <div class="output">
-      <Blank />
+      <BlankComponent />
     </div>
   </div>
 </template>
