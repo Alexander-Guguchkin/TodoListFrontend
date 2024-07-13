@@ -29,7 +29,7 @@ function offEdit(): void {
 <template>
   <div class="task">
     <template v-if="edit === false">
-      <div class="text">{{ text }} - {{ id }}</div>
+      <div class="text">{{ text }}</div>
     </template>
 
     <template v-else>
