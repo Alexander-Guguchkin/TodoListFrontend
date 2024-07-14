@@ -3,10 +3,11 @@ import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import BlankComponent from '@/components/ToDoList/BlankComponent.vue'
 import { useTasksStore } from '@/stores/tasks'
-
+// инициализация общего хранилища для доступа к функциям
 const tasksStore = useTasksStore()
 let inputText: string | number
 const createTask = () => {
+  // вызов метода из общего хранилища
   tasksStore.createTask(inputText)
 }
 </script>

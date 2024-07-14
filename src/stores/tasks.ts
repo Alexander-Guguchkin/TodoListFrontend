@@ -2,12 +2,12 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useTasksStore = defineStore('tasks', () => {
+  // главный массив с задачами
   const tasks = ref([])
 
   function createTask(textTask: string | number): void {
     // Создание уникального id
     const lengthTasks: number = tasks.value.length + 1
-    //Добавление в главный массив задачу
     tasks.value.push({
       id: lengthTasks,
       text: textTask

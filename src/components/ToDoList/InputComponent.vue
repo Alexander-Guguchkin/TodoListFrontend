@@ -3,6 +3,8 @@ defineProps({
   type: String,
   placeholder: String
 })
+// объявление реактивной переменной для того чтобы передать значение input
+// в родительский компонент
 const model = defineModel()
 </script>
 <template>

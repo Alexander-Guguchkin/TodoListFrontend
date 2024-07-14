@@ -3,15 +3,17 @@ import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import { defineProps, ref } from 'vue'
 import { useTasksStore } from '@/stores/tasks'
+// инициализация общего хранилища для доступа к функциям
 const tasksStore = useTasksStore()
-
 const props = defineProps({
   id: Number,
   text: String
 })
-
+//  флаг для определения вкличён или выключен режим редактирования
 let edit = ref(false)
+
 let inputText: string | number = ref('')
+
 // проверить как будет работать данный код в компоненте  Blank
 let deleteTask = () => {
   tasksStore.deleteTask(props.id)
@@ -76,6 +78,7 @@ function offEdit(): void {
 .btn1 {
   margin-right: 21px;
 }
+
 .btn2 {
   flex-grow: 1;
 }
