@@ -5,18 +5,39 @@ import { useTasksStore } from '@/stores/tasks'
 const tasksStore = useTasksStore()
 </script>
 <template>
-  <div class="blank">
+  <div class="blank"> 
     <template v-for="el in tasksStore.tasks" :key="el.id">
       <TaskComponent :id="el.id" :text="el.text" />
     </template>
   </div>
 </template>
 <style scoped>
+/* Стилизация  поля вывода задач */
 .blank {
   background: rgb(7, 63, 216);
   border-radius: 9px;
   padding: 10px 12px;
   height: 69vh;
   box-shadow: 1px 1px 12px;
+  overflow-y: auto; 
+}
+/* Стилизация полосы прокрутки */
+.blank::-webkit-scrollbar {
+  width: 12px; /* Ширина полосы прокрутки */
+}
+
+.blank::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Цвет фона полосы прокрутки */
+  border-radius: 10px;
+}
+
+.blank::-webkit-scrollbar-thumb {
+  background: rgb(7, 63, 216); /* Цвет ползунка */
+  border-radius: 10px;
+  border: 1px solid #f1f1f1;
+}
+
+.blank::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Цвет ползунка при наведении */
 }
 </style>
