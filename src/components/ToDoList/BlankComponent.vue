@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TaskComponent from '@/components/ToDoList/TaskComponent.vue'
 import { useTasksStore } from '@/stores/tasks'
-// инициализация общего хранилища для вывода задач
+// Инициализируем хранилище задач
 const tasksStore = useTasksStore()
 </script>
 <template>
