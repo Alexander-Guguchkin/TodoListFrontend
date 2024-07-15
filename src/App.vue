@@ -15,7 +15,5 @@ import HeaderComponent from '@/components/HeaderComponent.vue'
 </template>
 
 <style scoped>
-.conteiner__main {
-  padding: 24px;
-}
+
 </style>

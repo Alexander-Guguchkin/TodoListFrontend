@@ -26,6 +26,7 @@ const createTask = () => {
 .wrapper {
   margin: 0 auto;
   min-width: 329px;
+  padding: 24px;
 }
 
 .form {
