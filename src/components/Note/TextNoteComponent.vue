@@ -12,15 +12,20 @@ const text = ref("");
 <style scoped>
 .text-note {
   width: 100%;
-  height: 91vh;
+  height: 100vh;
   border: 1px solid #000;
-  border-radius: 10px;
 }
 
 .text-note__textarea {
   width: 100%;
-  height: 80%;
+  height: 100%;
   border: none;
   outline: none;
+  resize: none;
+  font-size: 1.5rem;
+
+  padding: 10px;
+  background-color: #f0f0f0;  
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 </style>
