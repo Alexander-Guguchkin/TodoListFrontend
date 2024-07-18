@@ -5,7 +5,6 @@ import { RouterLink } from 'vue-router'
   <header>
     <nav>
       <RouterLink to="/">ToDoList</RouterLink>
-      <RouterLink to="/note">Note</RouterLink>
     </nav>
   </header>
 </template>
