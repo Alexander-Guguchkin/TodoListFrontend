@@ -31,7 +31,6 @@ let passwordInput = ref('')
 </template>
 
 <style scoped>
-
 .login__title{
     text-align: center;
 }
@@ -48,7 +47,9 @@ let passwordInput = ref('')
   overflow-y: auto; 
   color: rgb(7, 63, 216);
 }
-/* .login__main, .login__footer{} */
+.login__main, .login__footer{
+    flex-grow: 1;
+}
 .login__flex{
   display: flex;
   flex-direction: column;
