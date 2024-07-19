@@ -26,17 +26,3 @@ const createTask = () => {
     </div>
   </div>
 </template>
-<style scoped>
-.wrapper {
-  margin: 0 auto;
-  min-width: 329px;
-  padding: 24px;
-}
-
-.form {
-  display: grid;
-  grid-template-columns: 6fr 1fr 2fr;
-  grid-gap: 40px;
-  margin-bottom: 29px;
-}
-</style>

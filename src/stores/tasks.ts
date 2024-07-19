@@ -25,6 +25,11 @@ export const useTasksStore = defineStore('tasks', () => {
       task.text = newText // Редактирование текста задачи
     }
   }
+  function findTasks(textTask:any){
+    // tasks.value = tasks.value.filter((task) => task.text === textTask)
+    // доработать на стороне сервера
+    return ''
+  }
 
-  return { tasks, createTask, deleteTask, editTask }
+  return { tasks, createTask, deleteTask, editTask, findTasks }
 })

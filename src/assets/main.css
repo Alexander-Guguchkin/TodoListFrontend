@@ -21,3 +21,56 @@ a {
   color: rgb(89, 126, 228);
   text-decoration: none;
 }
+
+/* ToDoList views */
+.wrapper {
+  margin: 0 auto;
+  min-width: 329px;
+  padding: 24px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 6fr 1fr 2fr;
+  grid-gap: 40px;
+  margin-bottom: 29px;
+}
+
+/* TaskComponent */
+.task {
+  border-radius: 9px;
+  padding: 9px 12px;
+  color: black;
+  background: white;
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  margin-bottom: 20px;
+}
+
+.text {
+  place-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.button {
+  flex-grow: 1;
+}
+
+.btn1 {
+  margin-right: 21px;
+}
+
+.btn2 {
+  flex-grow: 1;
+}
+
+/* SearchComponent */
+.search {
+  display: flex;
+  gap: 10px;
+}

@@ -49,37 +49,3 @@ function offEdit(): void {
     </div>
   </div>
 </template>
-
-<style scoped>
-.task {
-  border-radius: 9px;
-  padding: 9px 12px;
-  color: black;
-  background: white;
-  display: grid;
-  grid-template-columns: 4fr 2fr;
-  margin-bottom: 20px;
-}
-
-.text {
-  place-content: center;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 20px;
-}
-
-.button {
-  flex-grow: 1;
-}
-
-.btn1 {
-  margin-right: 21px;
-}
-
-.btn2 {
-  flex-grow: 1;
-}
-</style>

@@ -1,35 +1,34 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
+import SearchButtonComponent from './SearchButtonComponent.vue'
+import { useTasksStore } from '@/stores/tasks'
 import { ref } from 'vue'
+
+const tasks = useTasksStore()
+let searchInput = ref('')
+
+const findTasks = () => {
+  tasks.findTasks(searchInput)
+  isActive()
+}
+
 let activeFlag = ref(false)
+
 function isActive() {
   activeFlag.value = !activeFlag.value
 }
 </script>
+
 <template>
   <div class="search">
-    <!-- <input type="text" v-if="activeFlag === true"> -->
-    <InputComponent v-if="activeFlag === true" />
-    <button v-if="activeFlag === false" @click="isActive" class="seachButton">
-      <img
-        width="12"
-        height="12"
-        src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png"
-        alt="search--v1"
-      />
-    </button>
+    <InputComponent type="text" placeholder="Поиск" v-model="searchInput" v-if="activeFlag === true" />
+    <SearchButtonComponent v-if="activeFlag === false" @click="isActive" />
     <ButtonComponent
       v-if="activeFlag === true"
-      textButton="Сохранить"
+      textButton="Найти"
       class="saveButton"
-      @click="isActive"
+      @click="findTasks"
     />
   </div>
 </template>
-<style scoped>
-.search {
-  display: flex;
-  gap: 10px;
-}
-</style>
