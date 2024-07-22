@@ -36,13 +36,6 @@ let passwordInput = ref('')
 </template>
 
 <style scoped>
-.login__title{
-    text-align: center;
-}
-.login__footer{
-    text-align: end;
-}
-
 .login__container {
   display: flex;
   justify-content: center;

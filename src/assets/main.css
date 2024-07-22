@@ -77,10 +77,8 @@ a {
 
 /* Login views */
 
-.login{
+.login, .register{
   width: 35%;
   margin: 49px auto;
-  height: 100%;
-
   padding: 20px;
 }
