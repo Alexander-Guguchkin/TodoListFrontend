@@ -18,9 +18,14 @@ let passwordInput = ref('')
         </div>
     </div>
     <div class="login__main login__flex">
-        <InputComponent type="email" placeholder="Почта"  v-model="loginInput"/>
-        <InputComponent type="password" placeholder="Пароль"  v-model="passwordInput"/>
-        <ButtonComponent textButton="Войти"/>
+      <div class="loginInputs login__flex">       
+         <InputComponent type="email" placeholder="Почта"  v-model="loginInput"/>
+         <InputComponent type="password" placeholder="Пароль"  v-model="passwordInput"/></div>
+      <div class="loginButtons">      
+          <ButtonComponent textButton="Войти"/>
+        </div>
+
+
     </div>
     <div class="login__footer">
         <RouterLink to="/register">Зарегистрироваться</RouterLink>
@@ -39,21 +44,26 @@ let passwordInput = ref('')
 }
 
 .login__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: white;
   border-radius: 9px;
   padding: 10px 12px;
-  height: 69vh;
+  height: 49vh;
   box-shadow: 1px 1px 12px;
   overflow-y: auto; 
   color: rgb(7, 63, 216);
+
 }
-.login__main, .login__footer{
-    flex-grow: 1;
+
+.loginInputs{
+  padding: 20px 0;
 }
 .login__flex{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 10px;
 }
 
 </style>
