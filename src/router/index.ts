@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: () => import('../views/Register.vue')
+    },
+    {
+      path: '/psRec',
+      name: 'passwordRecovery',
+      component: () => import('../views/psRec.vue')
     }
   ]
 })

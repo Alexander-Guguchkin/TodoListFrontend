@@ -77,7 +77,7 @@ a {
 
 /* Login views */
 
-.login, .register{
+.login, .register, .psRec{
   width: 35%;
   margin: 49px auto;
   padding: 20px;
