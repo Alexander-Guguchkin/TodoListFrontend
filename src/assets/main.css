@@ -77,8 +77,19 @@ a {
 
 /* Login views */
 
-.login, .register, .psRec{
-  width: 35%;
-  margin: 49px auto;
-  padding: 20px;
+@media(min-width: 320px){
+  .login, .register, .psRec{
+    width: 95%;
+    margin: 49px auto;
+    padding: 20px;
+    font-size: 11px;
+  }
+}
+@media(min-width: 769px){
+  .login, .register, .psRec{
+    width: 59%;
+    margin: 49px auto;
+    padding: 20px;
+    font-size: 19px;
+  }
 }
