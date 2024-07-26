@@ -1,18 +1,24 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import axios from 'axios'
 
 export const useTasksStore = defineStore('tasks', () => {
   // главный массив с задачами
   const tasks = ref([])
-
-  function createTask(textTask: string | number): void {
-    // Создание уникального id
-    const lengthTasks: number = tasks.value.length + 1
-    tasks.value.push({
-      id: lengthTasks,
-      text: textTask
+  function getTasks(){
+    axios.get('http://127.0.0.1:8000/api/tasks/', ).then(res=>{
+      tasks.value = res.data
     })
   }
+  function createTask(textTask: string | number): void {
+    // формирование объекта для создания задачи
+    const data = {
+      text: textTask
+    }
+    axios.post(`http://127.0.0.1:8000/api/tasks/`, data)
+    getTasks()
+  }
+
   function deleteTask(id: any): void {
     tasks.value = tasks.value.filter((task) => task.id !== id)
   }
@@ -31,5 +37,5 @@ export const useTasksStore = defineStore('tasks', () => {
     return ''
   }
 
-  return { tasks, createTask, deleteTask, editTask, findTasks }
+  return { tasks, createTask, deleteTask, editTask, findTasks, getTasks }
 })

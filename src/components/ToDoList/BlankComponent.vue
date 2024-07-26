@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import TaskComponent from '@/components/ToDoList/TaskComponent.vue'
 import { useTasksStore } from '@/stores/tasks'
+import { onMounted } from 'vue'
 // Инициализируем хранилище задач
 const tasksStore = useTasksStore()
+onMounted(()=>{
+  tasksStore.getTasks()
+
+})
 </script>
 <template>
   <div class="blank"> 
-    <template v-for="el in tasksStore.tasks" :key="el.id">
-      <TaskComponent :id="el.id" :text="el.text" />
+    <template v-for="el in tasksStore.tasks">
+      <template v-for="el1 in el" :key="el1.id">
+        <TaskComponent :id="el1.id" :text="el1.text" />
+      </template>
+
     </template>
   </div>
 </template>
