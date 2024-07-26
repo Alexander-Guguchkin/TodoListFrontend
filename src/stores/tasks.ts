@@ -11,25 +11,20 @@ export const useTasksStore = defineStore('tasks', () => {
     })
   }
   function createTask(textTask: string | number): void {
-    // формирование объекта для создания задачи
-    const data = {
-      text: textTask
-    }
-    axios.post(`http://127.0.0.1:8000/api/tasks/`, data)
-    getTasks()
+    axios.post(`http://127.0.0.1:8000/api/tasks/`, {text: textTask  }).then(()=>{
+      getTasks()
+    })
   }
 
   function deleteTask(id: any): void {
-    tasks.value = tasks.value.filter((task) => task.id !== id)
+    axios.delete(`http://127.0.0.1:8000/api/tasks/${id}`).then(()=>{
+        getTasks()
+    })
   }
-  function getTaskById(id: any) {
-    return tasks.value.find((task) => task.id === id) //поиск элемента по его id
-  }
-  function editTask(id: any, newText: string | number): void {
-    const task = getTaskById(id)
-    if (task) {
-      task.text = newText // Редактирование текста задачи
-    }
+  function editTask(id: any, newText: string): void {
+      axios.patch(`http://127.0.0.1:8000/api/tasks/${id}`, {text:newText}).then(()=>{
+        getTasks()
+      })
   }
   function findTasks(textTask:any){
     // tasks.value = tasks.value.filter((task) => task.text === textTask)

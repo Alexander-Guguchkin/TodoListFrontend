@@ -6,7 +6,6 @@ import { onMounted } from 'vue'
 const tasksStore = useTasksStore()
 onMounted(()=>{
   tasksStore.getTasks()
-
 })
 </script>
 <template>
@@ -15,7 +14,6 @@ onMounted(()=>{
       <template v-for="el1 in el" :key="el1.id">
         <TaskComponent :id="el1.id" :text="el1.text" />
       </template>
-
     </template>
   </div>
 </template>
