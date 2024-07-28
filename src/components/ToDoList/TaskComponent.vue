@@ -12,7 +12,7 @@ const props = defineProps({
 //  флаг для определения вкличён или выключен режим редактирования
 let edit = ref(false)
 
-let inputText: string | number = ref('')
+let inputText = ref('')
 
 // проверить как будет работать данный код в компоненте  Blank
 let deleteTask = () => {
@@ -25,7 +25,7 @@ function onEdit(): void {
 
 function offEdit(): void {
   edit.value = false
-  tasksStore.editTask(props.id, inputText)
+  tasksStore.editTask(props.id, inputText.value.toString())
 }
 </script>
 <template>
