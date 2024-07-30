@@ -3,18 +3,28 @@ import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import SearchButtonComponent from './SearchButtonComponent.vue'
 import { useSearchStore } from '@/stores/search'
-import { ref } from 'vue'
-
-const search = useSearchStore()
-const searchTask = ()=>{
-  search.searchTask(searchInput.value)
-}
+import { useTasksStore } from '@/stores/tasks'
+import { onMounted, ref } from 'vue'
+const tasksStore = useTasksStore()
+const searchStore = useSearchStore()
+// const searchTask = ()=>{
+//   searchStore.searchTask(searchInput.value)
+// }
 let searchInput = ref('')
 let activeFlag = ref(false)
 
-function isActive() {
-  activeFlag.value = !activeFlag.value
+function activeOn(){
+  activeFlag.value = true
+
 }
+onMounted(()=>{
+
+})
+function activeOff(){
+  console.log( tasksStore.findTask())
+  activeFlag.value = false
+}
+
 </script>
 
 <template>
@@ -25,12 +35,12 @@ function isActive() {
       v-model="searchInput"
       v-if="activeFlag === true"
     />
-    <SearchButtonComponent v-if="activeFlag === false" @click="isActive" />
+    <SearchButtonComponent v-if="activeFlag === false" @click="activeOn" />
     <ButtonComponent
       v-if="activeFlag === true"
       textButton="Найти"
       class="saveButton"
-      @click="searchTask"
+      @click="activeOff"
     />
   </div>
 </template>
