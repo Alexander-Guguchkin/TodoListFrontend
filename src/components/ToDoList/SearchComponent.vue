@@ -3,13 +3,11 @@ import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import SearchButtonComponent from './SearchButtonComponent.vue'
 import { useSearchStore } from '@/stores/search'
-import { useTasksStore } from '@/stores/tasks'
-import { onMounted, ref } from 'vue'
-const tasksStore = useTasksStore()
+import { ref } from 'vue'
 const searchStore = useSearchStore()
-// const searchTask = ()=>{
-//   searchStore.searchTask(searchInput.value)
-// }
+const searchTask = ()=>{
+  searchStore.searchTask()
+}
 let searchInput = ref('')
 let activeFlag = ref(false)
 
@@ -17,11 +15,9 @@ function activeOn(){
   activeFlag.value = true
 
 }
-onMounted(()=>{
 
-})
 function activeOff(){
-  console.log( tasksStore.findTask())
+  searchTask()
   activeFlag.value = false
 }
 

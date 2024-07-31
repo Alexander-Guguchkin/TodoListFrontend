@@ -16,12 +16,6 @@ export const useTasksStore = defineStore('tasks', () => {
       getTasks()
     })
   }
-  function findTask (){
-    const text: string = '2'
-    return tasks.value.find((task)=>{
-          return task.valueOf() == text
-    })
-  }
   function deleteTask(id: any): void {
     axios.delete(`${apiURL}`+id).then(() => {
       getTasks()
@@ -33,5 +27,5 @@ export const useTasksStore = defineStore('tasks', () => {
     })
   }
 
-  return { tasks, createTask, deleteTask, editTask, getTasks, findTask }
+  return { tasks, createTask, deleteTask, editTask, getTasks}
 })
