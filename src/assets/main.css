@@ -45,6 +45,10 @@ a {
   display: grid;
   grid-template-columns: 4fr 2fr;
   margin-bottom: 20px;
+  cursor: pointer;
+}
+.task:hover{
+
 }
 
 .text {
@@ -72,6 +76,7 @@ a {
 /* SearchComponent */
 .search {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 

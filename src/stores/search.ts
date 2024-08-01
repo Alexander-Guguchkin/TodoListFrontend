@@ -1,16 +1,16 @@
-import { ref } from 'vue'
+
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { ref } from 'vue'
 
 export const useSearchStore = defineStore('search', () => {
-  // главный массив с задачами
-  const search = ref([])
+  const search = ref([]);
   const apiURL = 'http://127.0.0.1:8000/api/search/'
-  function searchTask(){
-    axios.get(`${apiURL}`).then((res)=>{
-        console.log(res);
+  function searchTask(textSearch:string){
+    axios.get(apiURL + textSearch).then((res)=>{
+        search.value = res.data;
     })
   }
   
-  return { search,  searchTask}
+  return {search, searchTask }
 })
