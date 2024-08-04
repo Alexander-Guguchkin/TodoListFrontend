@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useSearchStore } from '@/stores/search'
-
-import SearchTaskComponent from '@/components/ToDoList/SearchTaskComponent.vue'
-
+import TaskComponent from '@/components/ToDoList/TaskComponent.vue';
 const searchStore = useSearchStore()
 
 </script>
@@ -11,7 +9,7 @@ const searchStore = useSearchStore()
   <div class="searchingBlank">
     <template v-for="el in searchStore.search">
       <template v-for="el1 in el" :key="el1.id">
-        <SearchTaskComponent :id="el1.id" :text="el1.text" />
+        <TaskComponent :id="el1.id" :text="el1.text" />
       </template>
     </template>
   </div>
