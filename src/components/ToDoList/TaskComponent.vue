@@ -3,6 +3,9 @@ import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import { defineProps, ref } from 'vue'
 import { useTasksStore } from '@/stores/tasks'
+import DeleteButton from '@/components/ToDoList/DeleteButton.vue'
+import EditButton from '@/components/ToDoList/EditButton.vue'
+
 // инициализация общего хранилища для доступа к функциям
 const tasksStore = useTasksStore()
 const props = defineProps({
@@ -22,7 +25,6 @@ let deleteTask = () => {
 function onEdit(): void {
   edit.value = true
 }
-
 function offEdit(): void {
   edit.value = false
   tasksStore.editTask(props.id, inputText.value.toString())
@@ -39,9 +41,9 @@ function offEdit(): void {
     </template>
 
     <div class="buttons">
-      <ButtonComponent textButton="Удалить" @click="deleteTask" class="button btn1" />
+      <DeleteButton @click="deleteTask" class="button btn1" />
       <template v-if="edit === false">
-        <ButtonComponent textButton="Редактировать" @click="onEdit" class="button btn2" />
+        <EditButton  @click="onEdit" class="button btn2" />
       </template>
       <template v-else>
         <ButtonComponent textButton="Подтвердить" @click="offEdit" class="button btn2" />

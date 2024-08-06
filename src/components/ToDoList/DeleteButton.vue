@@ -1,11 +1,6 @@
-<script setup lang="ts">
-defineProps({
-  textButton: String
-})
-</script>
 <template>
   <div class="button">
-    <button>{{ textButton }}</button>
+    <button><img width="24" height="24" src="https://img.icons8.com/material-outlined/24/filled-trash.png" alt="filled-trash"/></button>
   </div>
 </template>
 <style scoped>
@@ -13,7 +8,7 @@ button {
   background: rgb(7, 63, 216);
   border: 2px solid rgb(7, 63, 216);
   border-radius: 9px;
-  padding: 10px 12px;
+  padding: 10px 10px;
   cursor: pointer;
   color: white;
   width: 100%;
