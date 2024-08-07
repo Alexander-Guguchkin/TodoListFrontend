@@ -3,9 +3,45 @@ import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
-
-let loginInput = ref('')
+import axios from 'axios'
+let emailInput = ref('')
 let passwordInput = ref('')
+axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
+// function login(){
+//   axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(response => {
+//     axios.post('http://127.0.0.1:8000/login', {email:emailInput.value, password:passwordInput.value }).then(response => {
+//       console.log(response, emailInput.value, passwordInput.value)
+//     });
+//   });
+// }
+function login() {
+  fetch('http://127.0.0.1:8000/sanctum/csrf-cookie', {
+    method: 'GET',
+    credentials: 'include'
+  })
+    .then(response => response.json())
+    .then(() => {
+      fetch('http://127.0.0.1:8000/login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'Referer': 'http://127.0.0.1:8000'
+        },
+        body: JSON.stringify({
+          email: emailInput.value,
+          password: passwordInput.value
+        })
+      })
+        .then(response => response.json())
+        .then(data => console.log(data, emailInput.value, passwordInput.value));
+    });
+
+}
+function test(){
+  axios.get('http://127.0.0.1:8000/api/test').then(response=>console.log(response.data))
+}
 </script>
 
 <template>
@@ -18,11 +54,12 @@ let passwordInput = ref('')
       </div>
       <div class="login__main login__flex">
         <div class="loginInputs login__flex">
-          <InputComponent type="email" placeholder="Почта" v-model="loginInput" />
+          <InputComponent type="email" placeholder="Почта" v-model="emailInput" />
           <InputComponent type="password" placeholder="Пароль" v-model="passwordInput" />
         </div>
         <div class="loginButtons">
-          <ButtonComponent textButton="Войти" />
+          <ButtonComponent textButton="Войти" @click="login"/>
+          <ButtonComponent textButton="Проверка" @click="test"/>
         </div>
       </div>
       <div class="login__footer">
