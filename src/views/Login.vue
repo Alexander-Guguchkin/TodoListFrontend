@@ -8,37 +8,37 @@ let emailInput = ref('')
 let passwordInput = ref('')
 axios.defaults.withCredentials = true;
 axios.defaults.withXSRFToken = true;
-// function login(){
-//   axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(response => {
-//     axios.post('http://127.0.0.1:8000/login', {email:emailInput.value, password:passwordInput.value }).then(response => {
-//       console.log(response, emailInput.value, passwordInput.value)
-//     });
-//   });
-// }
-function login() {
-  fetch('http://127.0.0.1:8000/sanctum/csrf-cookie', {
-    method: 'GET',
-    credentials: 'include'
-  })
-    .then(response => response.json())
-    .then(() => {
-      fetch('http://127.0.0.1:8000/login', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-          'Referer': 'http://127.0.0.1:8000'
-        },
-        body: JSON.stringify({
-          email: emailInput.value,
-          password: passwordInput.value
-        })
-      })
-        .then(response => response.json())
-        .then(data => console.log(data, emailInput.value, passwordInput.value));
+function login(){
+  axios.get('http://127.0.0.1:8000/api/sanctum/csrf-cookie').then(response => {
+    axios.post('http://127.0.0.1:8000/api/login', {email:emailInput.value, password:passwordInput.value }).then(response => {
+      console.log(response, emailInput.value, passwordInput.value)
     });
-
+  });
 }
+// function login() {
+//   fetch('http://127.0.0.1:8000/sanctum/csrf-cookie', {
+//     method: 'GET',
+//     credentials: 'include'
+//   })
+//     .then(response => response.json())
+//     .then(() => {
+//       fetch('http://127.0.0.1:8000/login', {
+//         method: 'POST',
+//         credentials: 'include',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Referer': 'http://127.0.0.1:8000'
+//         },
+//         body: JSON.stringify({
+//           email: emailInput.value,
+//           password: passwordInput.value
+//         })
+//       })
+//         .then(response => response.json())
+//         .then(data => console.log(data, emailInput.value, passwordInput.value));
+//     });
+
+// }
 function test(){
   axios.get('http://127.0.0.1:8000/api/test').then(response=>console.log(response.data))
 }

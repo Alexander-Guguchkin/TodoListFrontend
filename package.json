@@ -16,8 +16,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@nuxtjs/auth-next": "^5.0.0-1667386184.dfbbb54",
     "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
     "pinia": "^2.1.7",
+    "proxy": "^2.2.0",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
