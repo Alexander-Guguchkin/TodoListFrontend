@@ -2,10 +2,26 @@
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
+import {ref} from "vue";
+import axios from "axios";
+let email = ref('')
+let password = ref('')
 
-let loginInput = ref('')
-let passwordInput = ref('')
+
+function send(){
+  let data = {
+    email:email.value,
+    password:password.value,
+  }
+  axios.post('http://127.0.0.1:8000/api/login', data).then(response=>{
+    console.log('Вход успешен! Токен: ' + response.data.token);
+    console.log(response)
+    localStorage.setItem('token', response.data.token);
+  }).catch ((error)=>{
+    console.log(error.response.data.message || 'Ошибка входа');
+  })
+
+}
 </script>
 
 <template>
@@ -18,11 +34,11 @@ let passwordInput = ref('')
       </div>
       <div class="login__main login__flex">
         <div class="loginInputs login__flex">
-          <InputComponent type="email" placeholder="Почта" v-model="loginInput" />
-          <InputComponent type="password" placeholder="Пароль" v-model="passwordInput" />
+          <InputComponent type="email" placeholder="Почта" v-model="email" />
+          <InputComponent type="password" placeholder="Пароль" v-model="password" />
         </div>
         <div class="loginButtons">
-          <ButtonComponent textButton="Войти" />
+          <ButtonComponent textButton="Войти" @click="send" />
         </div>
       </div>
       <div class="login__footer">

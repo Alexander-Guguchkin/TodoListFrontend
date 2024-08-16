@@ -2,12 +2,23 @@
 import InputComponent from '@/components/ToDoList/InputComponent.vue'
 import ButtonComponent from '@/components/ToDoList/ButtonComponent.vue'
 // import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
-let inputName = ref('');
-let inputMail = ref('');
-let inputPassword = ref('');
-let inputCheckPassword = ref('');
-
+import {ref} from "vue";
+import axios from "axios";
+let name = ref('')
+let email = ref('')
+let password = ref('')
+let password_confirmation = ref('')
+function send(){
+  let data = {
+    name:name.value,
+    email:email.value,
+    password:password.value,
+    password_confirmation: password_confirmation.value
+  }
+  axios.post('http://127.0.0.1:8000/api/register', data).then(response=>{
+    console.log(response)
+  })
+}
 </script>
 
 <template>
@@ -20,13 +31,13 @@ let inputCheckPassword = ref('');
 
       <div class="register__main">
         <div class="register__inputs register__flex">
-            <InputComponent type="text" placeholder="Имя пользователя" v-model="inputName"/>
-            <InputComponent type="email" placeholder="Почта" v-model="inputMail"/>
-            <InputComponent type="password" placeholder="Пароль" v-model="inputPassword"/>
-            <InputComponent type="password" placeholder="Подтвердите пароль" v-model="inputCheckPassword"/>
+            <InputComponent type="text" placeholder="Имя пользователя" v-model="name"/>
+            <InputComponent type="email" placeholder="Почта" v-model="email"/>
+            <InputComponent type="password" placeholder="Пароль" v-model="password"/>
+            <InputComponent type="password" placeholder="Подтвердите пароль" v-model="password_confirmation"/>
         </div>
         <div class="register__buttons">
-            <ButtonComponent textButton="Зарегистрироваться"/>
+            <ButtonComponent textButton="Зарегистрироваться" @click="send"/>
         </div>
       </div>
     </div>
